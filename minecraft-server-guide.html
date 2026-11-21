@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как создать свой сервер Minecraft</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2, h3 {
+            color: #2C3E50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498DB;
+            padding-bottom: 10px;
+        }
+        h2 {
+            margin-top: 30px;
+            border-left: 4px solid #3498DB;
+            padding-left: 10px;
+        }
+        .step {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #3498DB;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .note {
+            background-color: #FCF8E3;
+            border-left: 4px solid #F0AD4E;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        code {
+            background-color: #f8f8f8;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            border: 1px solid #ddd;
+        }
+        .command {
+            background-color: #2C3E50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            margin: 15px 0;
+        }
+        .requirements {
+            background-color: #E8F4F8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Как создать свой сервер Minecraft</h1>
+    <div class="step">
+        <h2><span class="step-number">1</span> Покупка сервера</h2>
+        <p>Для хостинга сервера я рекомендую использовать FuntikCloud.</p>
+        <ol>
+            <li>Перейдите на сайт: <a href="https://funtikcloud.ru" target="_blank">https://funtikcloud.ru</a></li>
+            <li>Зарегистрируйтесь или войдите в аккаунт</li>
+            <li>Нажмите "Создать сервер" или "Новый заказ"</li>
+            <li>Выберите подходящий тариф</li>
+            <li>Произведите оплату удобным способом</li>
+        </ol>
+        <div class="requirements">
+            <h3>Рекомендуемые характеристики:</h3>
+            <ul>
+                <li><strong>RAM:</strong> 2-4 ГБ для 5-10 игроков</li>
+                <li><strong>Java:</strong> Версия 17 (рекомендуется)</li>
+                <li><strong>Диск:</strong> SSD для лучшей производительности</li>
+                <li><strong>Процессор:</strong> Высокочастотный для лучшего TPS</li>
+            </ul>
+            <p><strong>Способы оплаты:</strong> ЮMoney, банковские карты, QIWI, криптовалюты и другие.</p>
+        </div>
+        <p>После оплаты вы получите доступ к панели Pterodactyl для установки любой сборки сервера.</p>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">2</span> Вход в админ-панель</h2>
+        <p>После покупки хостинга вы получите доступ к админ-панели:</p>
+        <ol>
+            <li>Перейдите по адресу <a href="https://my.funtikcloud.ru" target="_blank">https://my.funtikcloud.ru</a></li>
+            <li>Введите логин и пароль, указанные при регистрации</li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">3</span> Настройка параметров сервера</h2>
+        <p>Переходим в вкладку <strong>Startup (Запуск)</strong> и настраиваем параметры:</p>
+        <ol>
+            <li><strong>Minecraft Version (версия Minecraft):</strong> выберите нужную версию (например, 1.16.1)</li>
+            <li>В разделе <strong>Server Jar File (Серверный JAR-файл)</strong> пишем <code>server.jar</code></li>
+            <li>В <strong>Build Number (Номер сборки)</strong> пишем <code>latest</code> (последняя)</li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">4</span> Скачивание серверного файла</h2>
+        <ol>
+            <li>Перейдите по ссылке <a href="https://papermc.io/downloads/all?project=paper" target="_blank">https://papermc.io/downloads/all?project=paper</a></li>
+            <li>Выберите нужную версию и нажмите "Установить"</li>
+            <div class="note">
+                <p><strong>Примечание:</strong> Windows может предупреждать о том, что JAR-файлы могут быть опасны, но это нормально. Разрешите загрузку.</p>
+            </div>
+            <li>После загрузки откройте файл в проводнике и переименуйте его в <code>server.jar</code></li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">5</span> Загрузка файла на сервер</h2>
+        <ol>
+            <li>Перейдите в раздел <strong>Files (Файлы)</strong> в панели управления</li>
+            <li>Нажмите на кнопку <strong>Upload (Загрузка)</strong></li>
+            <li>Выберите переименованный файл <code>server.jar</code></li>
+            <li>После загрузки файла перейдите в <strong>Console (Консоль)</strong> и запустите сервер</li>
+            <li>Подождите примерно 2 минуты для загрузки всех файлов</li>
+            <div class="note">
+                <p>Сервер автоматически остановится для принятия лицензии.</p>
+            </div>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">6</span> Принятие лицензии Mojang</h2>
+        <ol>
+            <li>Перейдите в раздел <strong>Files (Файлы)</strong></li>
+            <li>Найдите и откройте файл <code>eula.txt</code></li>
+            <li>Измените значение с <code>еула = ложь</code> на <code>еула=истина</code></li>
+            <li>Сохраните изменения</li>
+            <li>Перезапустите сервер</li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">7</span> Получение прав администратора</h2>
+        <ol>
+            <li>Перейдите во вкладку <strong>Console (Консоль)</strong> в панели управления</li>
+            <li><strong>Важно:</strong> Сначала зайдите на сервер, чтобы система запомнила вашего пользователя</li>
+            <li>Введите команду для назначения оператора (замените "ТВОЙ_НИК" на ваш игровой никнейм):</li>
+            <div class="command">op ТВОЙ_НИК</div>
+            <div class="note">
+                <p><strong>Важно:</strong> Перед выполнением команды обязательно зайдите на сервер, чтобы система запомнила вашего пользователя, иначе команда не сработает!</p>
+            </div>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">8</span> Настройка онлайн-режима</h2>
+        <p>Для игры с пиратскими клиентами необходимо отключить онлайн-режим:</p>
+        <ol>
+            <li>Откройте файл <code>server.properties</code> во вкладке <strong>Files</strong></li>
+            <li>Найдите строку <code>онлайн-режим = true</code></li>
+            <li>Измените значение на <code>онлайн-режим = ложь</code></li>
+            <li>Сохраните файл и перезапустите сервер</li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2><span class="step-number">9</span> Установка плагинов (опционально)</h2>
+        <p>Для расширения функциональности сервера вы можете установить плагины:</p>
+        <ol>
+            <li>Скачайте необходимые .jar файлы плагинов с соответствующих сайтов</li>
+            <li>Перейдите в раздел <strong>Files</strong> и откройте папку <code>plugins</code> (если её нет, создайте)</li>
+            <li>Загрузите плагины, нажав кнопку <strong>Upload</strong></li>
+            <li>Перезапустите сервер и дождитесь полной загрузки</li>
+        </ol>
+    </div>
+    <div class="step">
+        <h2>Поздравляем! 🎉</h2>
+        <p>Ваш сервер Minecraft полностью настроен и готов к игре! Теперь вы можете пригласить друзей и наслаждаться игрой на собственном сервере.</p>
+    </div>
+</body>
+</html>
